@@ -1,0 +1,18 @@
+[is-track-lyrics-page] yt-formatted-string.non-expandable {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+yt-formatted-lyric {
+    display: block;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #aaa;
+    margin: 2px 0;
+}
+
+yt-formatted-lyric.highlighted {
+    font-weight: bold;
+    color: #fff;
+}

@@ -1,0 +1,33 @@
+{
+    "name": "YouTube Music Rich Presence",
+    "version": "1.0.0.0",
+    "manifest_version": 3,
+    "description": "Displays your YouTube Music activity as Discord Rich Presence.",
+    "permissions": [
+        "storage",
+        "tabs",
+        "scripting",
+        "activeTab"
+    ],
+    "background": {
+        "type": "module",
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": ["*://music.youtube.com/*"],
+            "js": ["content_scripts/music.youtube.com.js"],
+            "world": "ISOLATED"
+        },
+        {
+            "matches": ["*://music.youtube.com/*"],
+            "js": ["content_scripts/mainWorld.js"],
+            "world": "MAIN"
+        },
+        {
+            "matches": ["*://music.youtube.com/*"],
+            "css": ["content_scripts/styles.css"],
+            "world": "MAIN"
+        }
+    ]
+}

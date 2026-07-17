@@ -1,0 +1,5 @@
+ytmusicapi
+requests
+pypresence
+quart
+uvicorn
