@@ -3,3 +3,5 @@ requests
 pypresence
 quart
 uvicorn
+googletrans
+langdetect

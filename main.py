@@ -4,13 +4,24 @@ from quart import Quart, websocket, request
 from uvicorn import run, Config
 from ytmusicapi import YTMusic
 from difflib import SequenceMatcher
+from googletrans import Translator
+from langdetect import detect
 
 
 ytmusic = YTMusic()
+translator = Translator()
 cached_lyrics = {}
 
 def lyric_emoji(line: str) -> str:
     line = line.lower()
+    try:
+        lang = detect(line)
+        if lang != 'en':
+            line = Translator().translate(line, dest='en').text
+        else:
+            line = line
+    except:
+        pass
     if any(w in line for w in ["boom"]):
         return "💥"
     if any(w in line for w in ["heartache", "heartbreak", "lonely"]):
@@ -212,7 +223,7 @@ class App:
                 state=lyric_emoji(lines[idx]) + " • " + lines[idx],
                 large_image=self.song_state.get("album_art_url", ""),
                 #small_image="play_small_image",
-                large_text=self.song_state.get("album", ""),
+                large_text=self.song_state.get('artist', '') + " • " + self.song_state.get("album", ""),
                 #small_text="Playing",
                 start=int(self.playback_start_time),
                 end=int(self.playback_start_time + self.song_state.get("duration", 0)),
