@@ -17,9 +17,7 @@ def lyric_emoji(line: str) -> str:
     try:
         lang = detect(line)
         if lang != 'en':
-            line = Translator().translate(line, dest='en').text
-        else:
-            line = line
+            line = asyncio.run(translator.translate(line, dest='en')).text
     except:
         pass
     if any(w in line for w in ["boom"]):
