@@ -4,6 +4,14 @@
 
 This project allows you to add live lyrics to YouTube Music, and provides a rich presence for Discord!
 
+## 🖼️ Demos
+
+YouTube Music Demo:
+![_d1](https://github.com/JustAnEric/DisYTM/blob/main/assets/Demo1.png?raw=true)
+
+Discord Demo:
+![_d2](https://github.com/JustAnEric/DisYTM/blob/main/assets/Demo2.png?raw=true)
+
 ## ❓ How it works
 
 The extension allows YouTube Music to communicate with the backend. The backend script contacts YouTube Music and lyrics services to find the best option. Current sources include:
